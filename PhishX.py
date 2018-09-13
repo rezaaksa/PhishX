@@ -86,6 +86,11 @@ def Menu():
 
 	os.system("clear")
 
+	menu_items = (['Twitter','Facebook','Instagram','Google','Steam','Github'])
+	menu_id = 1	
+	
+	
+
 	print("            "+Blue+"@@@@@@@   @@@  @@@  @@@   @@@@@@   @@@  @@@  @@@  @@@")
 	print("            "+Blue+"@@@@@@@@  @@@  @@@  @@@  @@@@@@@   @@@  @@@  @@@  @@@"  )
 	print("            "+Blue+"@@!  @@@  @@!  @@@  @@!  !@@       @@!  @@@  @@!  !@@"  )
@@ -97,46 +102,32 @@ def Menu():
 	print("            "+Blue+" ::       ::   :::   ::  :::: ::   ::   :::   ::  :::"  )
 	print("            "+Blue+" :         :   : :  :    :: : :     :   : :   :   :: "+Green+"V1.0")
 	print("      "+Blue+"__________________________"+Grey+" ["+Reset+"Z-HACKER"+Grey+"]"+Blue+"____________________________")
-	print("     "+Blue+"________________________"+Grey+"["+Red+"Pick Your Poison"+Grey+"]"+Blue+"__________________________"+Reset+"\n")
-	print("     "+Grey+"["+Blue+"1"+Grey+"]-["+Green+"Twitter"+Grey+"]")
-	print("     "+Grey+"["+Blue+"2"+Grey+"]-["+Green+"Facebook"+Grey+"]")
-	print("     "+Grey+"["+Blue+"3"+Grey+"]-["+Green+"Instagram"+Grey+"]")
-	print("     "+Grey+"["+Blue+"4"+Grey+"]-["+Green+"Google"+Grey+"]")
-	print("     "+Grey+"["+Blue+"5"+Grey+"]-["+Green+"Steam"+Grey+"]")
-	print("     "+Grey+"["+Blue+"6"+Grey+"]-["+Green+"Github"+Grey+"]\n")
-	print("     "+"["+Blue+"0"+Grey+"]-["+Red+"Add"+Grey+"/"+Red+"Check SMTP"+Grey+"]-"+Grey+"-["+Blue+"99"+Grey+"]-["+Red+"Exit"+Grey+"]"+"\n")
+	print("     "+Blue+"________________________"+Grey+"["+Red+"Pick Your Poison"+Grey+"]"+Blue+"__________________________"+Reset+"\n")	
+	
 
-	menu_options=int(input("     "+Grey+"$: "+Reset))
+	for platform in menu_items:
+		print("     "+Grey+"["+Blue+str(menu_id)+Grey+"]-["+Green+platform+Grey+"]")
+		menu_id = menu_id + 1	
 
-	if menu_options == 0:
-		Menu.module = "ADDSMTP"
+	print("")
+	print("     "+"["+Blue+"0"+Grey+"]-["+Red+"Add"+Grey+"/"+Red+"Check SMTP"+Grey+"]-"+Grey+"-["+Blue+"99"+Grey+"]-["+Red+"Exit"+Grey+"]"+"\n")	
 
-	elif menu_options == 1:
-		Menu.module = "twitter"
+	menu_options=input("     "+Grey+"$: "+Reset)
+	if menu_options == "0":
+		ADDSMTP()	
 
-	elif menu_options == 2:
-		Menu.module = "facebook"
-
-	elif menu_options == 3:
-		Menu.module = "instagram"
-
-	elif menu_options == 4:
-		Menu.module = "google"
-
-	elif menu_options == 5:
-		Menu.module = "steam"
-
-	elif menu_options == 6:
-		Menu.module = "github"
-
-
-	elif menu_options == 99:
-		ENDst()
+	elif menu_options == "99":
+		ENDst()	
 
 	else:
-		Menu()
+		try:
+			menu_options = int(menu_options) - 1
+			ltd = menu_items[menu_options]
+			Menu.module = str(ltd.lower())
+			Banner()
+		except Exception:
+			Menu()
 
-	Banner()
 
 
 
