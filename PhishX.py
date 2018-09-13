@@ -257,7 +257,7 @@ def Twitter():
 
 	elif Email_try == 'y':
 		Email_OS = str(random.choice(['Chrome on Linux','Firefox on Linux','Chrome on Android','Opera on Android','Chrome on IOS','Firefox on Windows']))
-		Email_from = str(random.choice(['Iraq','Russia','Sweeden','France']))
+		Email_from = str(random.choice(['Iraq','Russia','Sweden','France']))
 
 
 	#PRINTS SHIT
