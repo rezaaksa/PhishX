@@ -1,0 +1,5 @@
+Smtp_Template = """smtps = "[SMTP]"
+port = "[PORT]"
+username = "[USR]"
+password = "[PWD]"
+"""
